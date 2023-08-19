@@ -19,7 +19,7 @@ Install cman in your command line
 
 ```bash
   $ git clone git@github.com:dalonga-kohi/cman.git
-  $ cd cman-master
+  $ cd cman
   $ sudo ./build.sh
 ```
 cman is ready to use in your terminal!
