@@ -1,11 +1,18 @@
 cmake_minimum_required(VERSION 3.5)
 project(cman)
 
-# Here add additional source files in the SRC variable
-file(GLOB SRC "src/lib/**/*.cpp")
 set(CMAKE_CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED on)
 cmake_policy(SET CMP0135 NEW)
+
+#uncomment only one 
+add_compile_options(-Wall -Wextra -Wpedantic -Werror -g -O0)
+# add_compile_options(-Wall -Wextra -Wpedantic -Werror -g -O2)
+
+
+file(GLOB TESTS "src/tests/*.cpp")
+file(GLOB SRC "src/lib/**/*.cpp")
+
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -15,14 +22,13 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-
 add_library(${PROJECT_NAME}-lib STATIC ${SRC})
 add_executable(${PROJECT_NAME} src/main.cpp)
 target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}-lib)
 
 # Testing
 enable_testing()
-add_executable(${PROJECT_NAME}-ut src/cman.ut.cpp)
+add_executable(${PROJECT_NAME}-ut ${TESTS})
 target_link_libraries(${PROJECT_NAME}-ut ${PROJECT_NAME}-lib)
 target_link_libraries(${PROJECT_NAME}-ut GTest::gtest_main)
 

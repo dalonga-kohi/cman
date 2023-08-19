@@ -1,7 +1,8 @@
 #include <iostream>
 
 int main(int argc, char *argv[]) {
-  std::cout << "works" << std::endl;
+  std::cout << argv[0] << std::endl;
+  std::cout << argc << std::endl;
 
   return 0;
 }
