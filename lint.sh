@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set CMAN_DEBUG = 1
+unset CMAN_RELEASE
+
 clang-format src/main.cpp --verbose -i
 clang-format src/tests/*.cpp --verbose -i
 clang-format src/lib/**/*.cpp --verbose -i
