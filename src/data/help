@@ -1,0 +1,10 @@
+cman is a package manager for C/C++ projects.
+
+Command list:
+
+init - initialize new project.
+class - add new class.
+build - build project.
+test
+format
+dep

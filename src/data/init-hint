@@ -1,0 +1,10 @@
+init
+
+description:    initialize new project or download dependencies if config.cman already exists.
+                by default runs a configuration wizard. All options are optional.
+
+usage:  cman init <options>
+
+options:    no-wizard, author <author>, name <name>,  standard <language-standard>, 
+            version <version>, compiler <compiler-name>
+    
