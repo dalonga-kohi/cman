@@ -16,9 +16,13 @@ Simplify your development with cman. Manage your project with ease.
 
 ### For Linux:
 ```bash
-  $ git clone git@github.com:dalonga-kohi/cman.git
-  $ cd cman
-  $ ./build.sh
+  git clone git@github.com:dalonga-kohi/cman.git
+```
+```bash
+  cd cman
+```
+```bash
+  ./build.sh
 ```
 cman is ready to use in your terminal!
 
