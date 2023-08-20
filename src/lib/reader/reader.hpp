@@ -11,16 +11,9 @@ namespace cman {
 class Reader {
  public:
   Reader();
-  Reader(Reader &&) = default;
-  Reader(const Reader &) = default;
-  Reader &operator=(Reader &&) = default;
-  Reader &operator=(const Reader &) = default;
-  bool operator==(Reader &&);
-  bool operator==(const Reader &);
+  ~Reader();
 
   Command *interpret(std::vector<std::string> &, int);
-
-  ~Reader();
 };
 
 }  // namespace cman

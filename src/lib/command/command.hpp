@@ -1,30 +1,28 @@
 
+#include <filesystem>
+#include <fstream>
 #include <string>
+
 namespace cman {
 
 class Command {
  public:
-  Command() {}
-  Command(Command &&) = default;
-  Command(const Command &) = default;
-  Command &operator=(Command &&) = default;
-  Command &operator=(const Command &) = default;
+  inline Command() {}
+  inline ~Command() {}
 
   virtual std::string execute() = 0;
 
-  ~Command() {}
+ protected:
+  std::string msg;
+
+  std::string load(const std::string&);
 };
 
 class Invalid : public Command {
  public:
-  Invalid() {}
-  Invalid(Invalid &&) = default;
-  Invalid(const Invalid &) = default;
-  Invalid &operator=(Invalid &&) = default;
-  Invalid &operator=(const Invalid &) = default;
+  inline Invalid() { msg = load("data/help"); }
   ~Invalid() {}
-
-  std::string execute() { return ""; }
+  inline std::string execute() override { return msg; }
 };
 
 }  // namespace cman

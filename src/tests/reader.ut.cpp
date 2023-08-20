@@ -27,6 +27,7 @@ class ReadInvalidCommand : public testing::Test {
 
     std::ifstream help("data/help");
     expected << help.rdbuf();
+    help.close();
   }
 };
 
