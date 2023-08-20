@@ -15,7 +15,7 @@ if [ -d "/usr/bin/cman" ]; then
     rm -f /usr/bin/cman
 fi
 
-mv cman /usr/bin/cman
+sudo mv cman /usr/bin/cman
 
 cd ..
 rm -rf tmp

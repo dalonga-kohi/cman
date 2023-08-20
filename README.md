@@ -1,5 +1,4 @@
-
-# cman 
+# cman
 open source C/C++ package manager
 ---
 Simplify your development with cman. Manage your project with ease.
@@ -15,14 +14,16 @@ Simplify your development with cman. Manage your project with ease.
 
 ## Installation
 
-Install cman in your command line
-
+### For Linux:
 ```bash
   $ git clone git@github.com:dalonga-kohi/cman.git
   $ cd cman
-  $ sudo ./build.sh
+  $ ./build.sh
 ```
 cman is ready to use in your terminal!
+
+### For Windows:
+Not ready yet
 
 ## Usage/Examples
 
