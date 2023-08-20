@@ -36,5 +36,15 @@ $ cman init .
 $ cman add dep gtest
 $ cman add class sampleClass --inline
 ```
+You can type:
+```bash
+  cman help
+```
+For full documentation
 
+## Contributing
+
+Contributions are always welcome!
+
+See `CONTRIBUTING.md` for ways to get started.
 
