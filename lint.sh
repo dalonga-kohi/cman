@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set CMAN_DEBUG = 1
+export CMAN_DEBUG=1 
 unset CMAN_RELEASE
 
 clang-format src/main.cpp --verbose -i

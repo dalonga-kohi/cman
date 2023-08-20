@@ -5,9 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED on)
 cmake_policy(SET CMP0135 NEW)
 
-if($ENV{CMAN_RELEASE})
-    add_compile_options(-Wall -Wextra -Wpedantic -Werror -g -O2)
-elseif($ENV{CMAN_DEBUG})
+if(DEFINED ENV{CMAN_RELEASE})
+    add_compile_options(-Wall -g -O3)
+elseif(DEFINED ENV{CMAN_DEBUG})
     add_compile_options(-Wall -Wextra -Wpedantic -Werror -g -O0)
 endif()
 
@@ -21,7 +21,7 @@ add_executable(${PROJECT_NAME} src/main.cpp)
 target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}-lib)
 
 # Testing
-if($ENV{CMAN_DEBUG})
+if(DEFINED ENV{CMAN_DEBUG})
 
 include(FetchContent)
 FetchContent_Declare(

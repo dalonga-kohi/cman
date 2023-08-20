@@ -1,7 +1,7 @@
 #!/bin/bash
 
 unset CMAN_DEBUG
-set CMAN_RELEASE = 1
+export CMAN_RELEASE = 1
 
 if [ ! -d "./tmp" ]; then
     mkdir tmp
