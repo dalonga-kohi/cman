@@ -18,6 +18,13 @@ fi
 
 cd build
 make
+
+if [ -d "./data" ]; then
+    rm -r data 
+fi
+
+cp -r ../src/data data
+
 command ./cman-ut
 
 exit 0
