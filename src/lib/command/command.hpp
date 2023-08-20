@@ -4,7 +4,7 @@ namespace cman {
 
 class Command {
  public:
-  Command();
+  Command() {}
   Command(Command &&) = default;
   Command(const Command &) = default;
   Command &operator=(Command &&) = default;
@@ -12,17 +12,17 @@ class Command {
 
   virtual std::string execute() = 0;
 
-  ~Command();
+  ~Command() {}
 };
 
 class Invalid : public Command {
  public:
-  Invalid();
+  Invalid() {}
   Invalid(Invalid &&) = default;
   Invalid(const Invalid &) = default;
   Invalid &operator=(Invalid &&) = default;
   Invalid &operator=(const Invalid &) = default;
-  ~Invalid();
+  ~Invalid() {}
 
   std::string execute() { return ""; }
 };
