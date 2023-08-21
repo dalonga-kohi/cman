@@ -1,5 +1,6 @@
 #pragma once
 
+#include <map>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -14,6 +15,9 @@ class Reader {
   ~Reader();
   Command *interpret(const std::vector<std::string> &) const;
   Command *interpret(const std::vector<std::string> &, int) const;
+
+ private:
+  std::map<std::string, Command *> command_aliases;
 };
 
 }  // namespace cman

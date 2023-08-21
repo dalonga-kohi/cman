@@ -26,4 +26,17 @@ class Invalid : public Command {
   inline std::string execute() override { return msg; }
 };
 
+class Init : public Command {
+ public:
+  inline Init() {
+    msg = load("init");
+    hint = load("init-hint");
+  }
+  ~Init() {}
+  inline std::string execute() override { return hint; }
+
+ private:
+  std::string hint;
+};
+
 }  // namespace cman
