@@ -1,6 +1,7 @@
 
-#include <filesystem>
 #include <fstream>
+#include <sstream>
+#include <stdexcept>
 #include <string>
 
 namespace cman {
@@ -20,7 +21,7 @@ class Command {
 
 class Invalid : public Command {
  public:
-  inline Invalid() { msg = load("data/help"); }
+  inline Invalid() { msg = load("help"); }
   ~Invalid() {}
   inline std::string execute() override { return msg; }
 };

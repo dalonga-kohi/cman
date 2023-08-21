@@ -2,6 +2,12 @@
 #include <string>
 #include <vector>
 
+#ifdef _WIN32
+#define ABS_PATH "C:\\Program Files\\cman\\"
+#else
+#define ABS_PATH "/etc/cman/"
+#endif  // _WIN32
+
 namespace cman {
 
 inline bool file_exist(const char* file_name) {

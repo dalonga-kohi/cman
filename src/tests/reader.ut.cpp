@@ -25,7 +25,7 @@ class ReadInvalidCommand : public testing::Test {
     cmd.reset(new Invalid);
     rd.reset(new Reader);
 
-    std::ifstream help("data/help");
+    std::ifstream help("../src/data/help");
     expected << help.rdbuf();
     help.close();
   }
