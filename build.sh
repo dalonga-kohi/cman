@@ -11,18 +11,16 @@ cd tmp
 cmake ..
 make
 
-if [ -e "/usr/share/cman" ]; then
-    sudo rm -rf /usr/share/cman
-fi
-
 if [ -e "/usr/bin/cman" ]; then
-   sudo rm -f /usr/bin/cman 
+    sudo rm -f /usr/bin/cman
 fi
 
-sudo mkdir /usr/share/cman
-sudo cp -r ../src/data /usr/share/cman/data
-sudo mv ./cman /usr/share/cman/cman 
-sudo ln /usr/share/cman/cman /usr/bin/cman
+if [ -d "/etc/cman" ]; then
+   sudo rm -rf /etc/cman 
+fi
+
+sudo cp -r ../src/data /etc/cman
+sudo mv ./cman /usr/bin/cman
 
 cd ..
 rm -rf tmp

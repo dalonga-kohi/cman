@@ -19,11 +19,11 @@ fi
 cd build
 make
 
-if [ -d "./data" ]; then
-    rm -r data 
+if [ -d "/etc/cman" ]; then
+    sudo rm -rf /etc/cman 
 fi
 
-cp -r ../src/data data
+sudo cp -r ../src/data /etc/cman
 
 command ./cman-ut
 
