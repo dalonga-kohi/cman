@@ -24,7 +24,7 @@ TEST(ConvertArgs, ConvertMultipleParameters) {
 }
 TEST(ConvertArgs, ConvertNoParameter) {
   std::vector<std::string> expected = {};
-  char* args[] = {};
+  char* args[] = {(char*)""};
 
   std::vector<std::string> res = cman::convert_args(args, 0);
 

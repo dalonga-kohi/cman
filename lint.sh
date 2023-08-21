@@ -5,7 +5,7 @@ unset CMAN_RELEASE
 
 clang-format src/main.cpp --verbose -i
 clang-format src/tests/*.cpp --verbose -i
-clang-format src/lib/utils.cpp --verbose -i
+clang-format src/lib/utils.hpp --verbose -i
 clang-format src/lib/**/*.cpp --verbose -i
 clang-format src/lib/**/*.hpp --verbose -i
 

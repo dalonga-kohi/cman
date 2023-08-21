@@ -11,7 +11,7 @@ elseif(DEFINED ENV{CMAN_DEBUG})
     add_compile_options(-Wall -Wextra -Wpedantic -Werror -g -O0)
 endif()
 
-file(GLOB TESTS "src/tests/*.cpp")
+file(GLOB TESTS "src/tests/*.ut.cpp")
 file(GLOB SRC "src/lib/**/*.cpp")
 
 
