@@ -1,12 +1,12 @@
 #include <iostream>
 #include <memory>
-#include <string>
-#include <vector>
 
 #include "lib/reader/reader.hpp"
+#include "lib/utils.hpp"
 
 int main(int argc, char *argv[]) {
-  std::vector<std::string> input = {argv[0], argv[1]};
+  std::vector<std::string> input = cman::convert_args(argv, argc);
+
   std::unique_ptr<cman::Reader> rd = std::make_unique<cman::Reader>();
   std::unique_ptr<cman::Command> cmd = std::make_unique<cman::Invalid>();
 
