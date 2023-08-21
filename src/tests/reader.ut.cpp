@@ -31,6 +31,27 @@ class ReadInvalidCommand : public testing::Test {
   }
 };
 
+class ReadInitCommand : public testing::Test {
+ protected:
+  std::unique_ptr<Reader> rd;
+  std::unique_ptr<Command> cmd;
+  std::stringstream expected;
+  std::stringstream hint;
+  std::vector<std::string> args = {"cman", "init"};
+
+  ReadInitCommand() {
+    cmd.reset(new Invalid);
+    rd.reset(new Reader);
+
+    std::ifstream msg("../src/data/init");
+    expected << msg.rdbuf();
+    msg.close();
+    msg.open("../src/data/init-hint");
+
+    hint << msg.rdbuf();
+  }
+};
+
 TEST_F(ReadInvalidCommand, InvalidCommandWithLen) {
   cmd.reset(rd->interpret(args, len));
   std::string msg = cmd->execute();
@@ -48,4 +69,22 @@ TEST_F(ReadInvalidCommand, LongerInvalidCommandWithLen) {
   rd.reset(nullptr);
 
   ASSERT_EQ(msg, expected.str());
+}
+
+TEST_F(ReadInvalidCommand, LongerInvalidCommand) {
+  cmd.reset(rd->interpret(args_longer));
+  std::string msg = cmd->execute();
+
+  cmd.reset(nullptr);
+  rd.reset(nullptr);
+
+  ASSERT_EQ(msg, expected.str());
+}
+TEST_F(ReadInitCommand, InvalidInit) {
+  args.push_back("inv");
+
+  cmd.reset(rd->interpret(args));
+  std::string res = cmd->execute();
+
+  ASSERT_EQ(res, hint.str());
 }

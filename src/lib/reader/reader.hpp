@@ -12,8 +12,8 @@ class Reader {
  public:
   Reader();
   ~Reader();
-
-  Command *interpret(std::vector<std::string> &, int);
+  Command *interpret(const std::vector<std::string> &) const;
+  Command *interpret(const std::vector<std::string> &, int) const;
 };
 
 }  // namespace cman
