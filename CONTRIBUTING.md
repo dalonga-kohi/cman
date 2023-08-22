@@ -18,7 +18,7 @@ This will ensure your code is well formated and run all unit tests.
 3.  Also, coordinate with team members that are listed on the issue in question.
     This ensures that work isn't being duplicated and communicating your plan
     early also generally leads to better patches.
-4.  Fork the desired repo(use development branch), develop and test your code changes.
+4.  Fork the desired repo, develop and test your code changes.
 5.  Ensure that your code adheres to the existing style in the sample to which
     you are contributing.
 6.  Ensure that your code has an appropriate set of unit tests which all pass.
