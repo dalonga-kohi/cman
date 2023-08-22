@@ -13,11 +13,12 @@ class Reader {
  public:
   Reader();
   ~Reader();
-  Command *interpret(const std::vector<std::string> &) const;
-  Command *interpret(const std::vector<std::string> &, int) const;
+  Command *interpret(Arguments) const;
+  Command *interpret(Arguments, int) const;
 
  private:
   std::map<std::string, Command *> command_aliases;
+  Command *initialize_command(Arguments) const;
 };
 
 }  // namespace cman
