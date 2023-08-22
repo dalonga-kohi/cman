@@ -5,11 +5,10 @@
 
 using namespace cman;
 
-Init::Init() {
+Init::Init() : Command() {
   try {
     msg = load("init");
     hint = load("init-hint");
-    arguments = {};
   } catch (std::runtime_error& e) {
     std::cout << e.what() << std::endl;
   }

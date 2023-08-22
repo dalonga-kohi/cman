@@ -22,10 +22,11 @@ Command* Reader::interpret(Arguments args) const {
 
 Command* Reader::initialize_command(Arguments a) const {
   auto& main = a[1];
-
   if (command_aliases.count(main) == 0) return new Invalid;
 
-  return command_aliases.at(main);
+  auto vec = std::vector<std::string>(a.begin() + 2, a.end());
+
+  return command_aliases.at(main)->set_arguments(vec);
 }
 
 Reader::~Reader() { command_aliases.clear(); }

@@ -13,7 +13,7 @@ namespace cman {
 
 class Command {
  public:
-  inline Command() {}
+  inline Command() { arguments = {}; }
   inline ~Command() {}
 
   virtual std::string execute() noexcept = 0;
@@ -28,7 +28,7 @@ class Command {
 
 class Invalid : public Command {
  public:
-  inline Invalid() {
+  inline Invalid() : Command() {
     try {
       msg = load("help");
     } catch (std::runtime_error& e) {
