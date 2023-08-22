@@ -1,8 +1,10 @@
+#pragma once
 
 #include <fstream>
+#include <iostream>
+#include <iterator>
 #include <sstream>
 #include <stdexcept>
-#include <string>
 #include <vector>
 
 using Arguments = const std::vector<std::string>&;
@@ -14,38 +16,39 @@ class Command {
   inline Command() {}
   inline ~Command() {}
 
-  virtual std::string execute() = 0;
-  virtual Command* set_arguments(Arguments) = 0;
+  virtual std::string execute() noexcept = 0;
+  Command* set_arguments(Arguments);
 
  protected:
   std::string msg;
+  std::vector<std::string> arguments;
 
   std::string load(const std::string&);
 };
 
 class Invalid : public Command {
  public:
-  inline Invalid() { msg = load("help"); }
+  inline Invalid() {
+    try {
+      msg = load("help");
+    } catch (std::runtime_error& e) {
+      std::cout << e.what() << std::endl;
+    }
+  }
   ~Invalid() {}
 
-  inline Command* set_arguments(Arguments a) override { return this; }
-  inline std::string execute() override { return msg; }
+  inline std::string execute() noexcept { return msg; }
 };
 
 class Init : public Command {
  public:
-  inline Init() {
-    msg = load("init");
-    hint = load("init-hint");
-    arguments = {};
-  }
+  Init();
   ~Init() {}
-  Command* set_arguments(Arguments) override;
-  std::string execute() override;
+
+  std::string execute() noexcept;
 
  private:
   std::string hint;
-  std::vector<std::string> arguments;
 };
 
 }  // namespace cman

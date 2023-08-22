@@ -15,3 +15,8 @@ std::string Command::load(const std::string& file) {
 
   return buff.str();
 }
+
+Command* Command::set_arguments(Arguments args) {
+  arguments = args;
+  return this;
+}

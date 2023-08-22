@@ -28,4 +28,4 @@ Command* Reader::initialize_command(Arguments a) const {
   return command_aliases.at(main);
 }
 
-Reader::~Reader() {}
+Reader::~Reader() { command_aliases.clear(); }
